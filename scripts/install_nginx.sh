@@ -1,12 +1,13 @@
 #!/bin/bash
 
-sudo yum update
-#sudo amazon-linux-extras install nginx1
-sudo amazon-linux-extras install nginx1.12
-nginx -v
-systemctl start nginx
-systemctl enable nginx
-chmod 2775 /usr/share/nginx/html 
-find /usr/share/nginx/html -type d -exec chmod 2775 {} \;
-find /usr/share/nginx/html -type f -exec chmod 0664 {} \;
+# Update the system
+sudo yum update -y
 
+# Install NGINX
+sudo yum install nginx -y
+
+# Enable NGINX to start on boot
+sudo systemctl enable nginx
+
+# Start NGINX
+sudo systemctl start nginx
